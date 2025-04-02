@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verificación de Placa</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo.css">
+</head>
+<body>
+    <form>
+        <h1>Verificación de Placa</h1>
+        <div id="result"></div>
+    </form>
+    <script>
+        // Función para realizar la solicitud GET
+        function checkSignal() {
+            $.ajax({
+                url: '/signal',
+                type: 'GET',
+                success: function(response){
+                    var ss = response.status;
+                    var message = response.message;
+                    if (ss === 'success') {
+                        console.log('Señal detectada. Realizando acción...');
+                        $.ajax({
+                            url: '/capture',
+                            type: 'POST',
+                            success: function(response){
+                                $('#result').text(response);
+                                setTimeout(function(){
+                                    checkSignal();
+                                }, 5000);
+                            },
+                            error: function(error){
+                                console.log(error);
+                                checkSignal();
+                            }
+                        });
+                    } else {
+                        checkSignal();
+                    }
+                },
+                error: function(error){
+                    console.log(error);
+                    checkSignal();
+                }
+            });
+        }
+        checkSignal();
+    </script>
+</body>
+</html>

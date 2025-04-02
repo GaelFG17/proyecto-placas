@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('fn.jpg'); 
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+}
+
+form {
+    width: 80%;
+    max-width: 400px; 
+    background-color: #fcfdfd88;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgb(239, 240, 241); 
+}
+
+h1 {
+    color: #000000;
+    text-align: center; 
+}
+
+#capture-btn {
+    background-color: #1acd5f;
+    color: rgb(16, 87, 14);
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 15px;
+    transition: background-color 0.3s; 
+}
+
+#capture-btn:hover {
+    background-color: #0d8a4f; 
+    color:#1acd5f ;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #34c331;
+    text-align: center; 
+}
+
+#numeroPlacaContainer {
+    position: relative;
+    margin-bottom: 15px; 
+}
+
+#numeroPlaca {
+    width: calc(100% - 10px); 
+    padding: 5px;
+    border: 2px solid #34c331;
+    border-radius: 10px;
+    outline:0.2px;
+}
+#marcaContainer {
+    position: relative;
+    margin-bottom: 15px; 
+}
+
+#marca {
+    width: calc(100% - 10px); 
+    padding: 5px;
+    border: 2px solid #34c331;
+    border-radius: 10px;
+    outline:0.2px;
+}
+

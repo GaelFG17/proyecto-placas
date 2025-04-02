@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Placas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body>
+    <form>
+        <h1>Registrar Placas</h1>
+        <div id="numeroPlacaContainer">
+            <label for="numeroPlaca">Número de Placa</label>
+            <input type="text" id="numeroPlaca" name="numeroPlaca" required>
+        </div>
+        <div id="marcaContainer">
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" name="marca" required>
+        </div>
+        <button id="capture-btn">Registrar</button>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            $('#capture-btn').click(function(){
+                $.ajax({
+                    url: '/registrar',
+                    type: 'POST',
+                    data: {
+                        numeroPlaca: $('#numeroPlaca').val(),
+                        marca: $('#marca').val()
+                    },
+                    success: function(response){
+                        $('#result').text(response);
+                    },
+                    error: function(error){
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
