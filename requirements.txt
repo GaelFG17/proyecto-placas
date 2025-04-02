@@ -1,0 +1,6 @@
+mysql-connector-python
+opencv-python
+requests
+flask
+flask_cors
+pyserial
